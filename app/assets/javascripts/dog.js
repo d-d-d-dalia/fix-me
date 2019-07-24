@@ -3,10 +3,19 @@
 // })
 
 document.addEventListener("DOMContentLoaded", function(){
-    bindEventListeners()
+    console.log("hey!")
+    bindClickHandlers()
 })
 
-function bindEventListeners() {
-    
+const bindClickHandlers = () => {
+    $('#all_puppies').on('click', e => {
+        console.log("clicked!")
+        e.preventDefault()
 
+        fetch('/dogs.json')
+            .then(res => res.json())
+            .then(dogs => {
+                console.log(dogs)
+            })
+    })
 }
